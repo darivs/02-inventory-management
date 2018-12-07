@@ -15,7 +15,7 @@ class InventoryManager {
         return letterOccurrences[0] * letterOccurrences[1];
     }
 
-    int[] countLetterOccurrences(List<String> boxIds) {
+    private int[] countLetterOccurrences(List<String> boxIds) {
         for (String boxId : boxIds) {
             int[] letterCountsOfSingle = countLetterOccurrencesOfSingle(boxId);
 
