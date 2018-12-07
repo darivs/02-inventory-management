@@ -3,8 +3,6 @@ import java.util.List;
 
 class InventoryManager {
     private int[] letterCountsOfAll = new int[2];
-    private boolean twoOccurrences = false;
-    private boolean threeOccurrences = false;
     private List<Character> alphabet = Arrays.asList(
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
@@ -27,8 +25,8 @@ class InventoryManager {
 
     int[] countLetterOccurrencesOfSingle(String boxId) {
         int[] letterCountsOfOneBoxId = new int[2];
-        twoOccurrences = false;
-        threeOccurrences = false;
+        boolean twoOccurrences = false;
+        boolean threeOccurrences = false;
 
         for (Character letter : alphabet) {
             int count = 0;
