@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class InventoryManagerTest {
     private InventoryManager inventoryManager;
-    List<String> boxIDs;
+    private List<String> boxIDs;
 
     @Before
     public void initialize() {
