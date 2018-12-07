@@ -12,6 +12,6 @@ public class Main {
         System.out.println(checksum);
 
         String[] correctIDs = inventoryManager.getCorrectIDs(listOfBoxIDs);
-        System.out.println(correctIDs[0] + " " + correctIDs[1]);
+        System.out.println(correctIDs[0] + "\n" + correctIDs[1]);
     }
 }
