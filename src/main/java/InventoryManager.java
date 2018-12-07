@@ -16,7 +16,7 @@ class InventoryManager {
     }
 
     int[] countLetterOccurrences(List<String> boxIds) {
-        for(String boxId : boxIds) {
+        for (String boxId : boxIds) {
             int[] letterCountsOfSingle = countLetterOccurrencesOfSingle(boxId);
 
             letterCountsOfAll[0] += letterCountsOfSingle[0];
@@ -47,5 +47,39 @@ class InventoryManager {
         }
 
         return letterCountsOfOneBoxId;
+    }
+
+    String[] getCorrectIDs(List<String> boxIDs) {
+        String[] correctIDs = new String[2];
+
+        for (int i = 0; i < boxIDs.size(); i++) {
+            char[] firstBoxID = boxIDs.get(i).toCharArray();
+
+            for (int j = 1; j < boxIDs.size(); j++) {
+                char[] secondBoxID = boxIDs.get(j).toCharArray();
+                int differs = 0;
+
+                for (int k = 0; k < secondBoxID.length; k++) {
+                    if (firstBoxID[k] != secondBoxID[k]) {
+                        differs++;
+                    }
+
+                    if (differs > 1) {
+                        k = secondBoxID.length + 1;
+                    } else if (differs == 1 && k == secondBoxID.length - 1) {
+                        correctIDs[0] = new String(firstBoxID);
+                        correctIDs[1] = new String(secondBoxID);
+
+                        k = secondBoxID.length;
+                        j = boxIDs.size();
+                        i = boxIDs.size();
+                    }
+                }
+
+            }
+
+        }
+
+        return correctIDs;
     }
 }

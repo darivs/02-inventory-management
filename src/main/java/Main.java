@@ -9,7 +9,9 @@ public class Main {
         List<String> listOfBoxIDs = fileReader.getListOfBoxIDs();
 
         int checksum = inventoryManager.getChecksum(listOfBoxIDs);
-
         System.out.println(checksum);
+
+        String[] correctIDs = inventoryManager.getCorrectIDs(listOfBoxIDs);
+        System.out.println(correctIDs[0] + " " + correctIDs[1]);
     }
 }

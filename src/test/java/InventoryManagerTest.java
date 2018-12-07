@@ -34,4 +34,14 @@ public class InventoryManagerTest {
 
         assertEquals(6, checksum);
     }
+
+    @Test
+    public void that_box_ids_which_differ_by_one_character_getting_found() {
+        List<String> boxIDs = Arrays.asList("aaabbbcee", "aabbcddee", "odddyrenn", "xxxxxxxxx", "sdfkjsakl", "odddytenn", "faagrufnr");
+
+        String[] correctBoxIDs = inventoryManager.getCorrectIDs(boxIDs);
+
+        assertEquals("odddyrenn", correctBoxIDs[0]);
+        assertEquals("odddytenn", correctBoxIDs[1]);
+    }
 }
