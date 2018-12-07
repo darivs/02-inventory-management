@@ -8,13 +8,11 @@ import static org.junit.Assert.assertEquals;
 
 public class InventoryManagerTest {
     private InventoryManager inventoryManager;
-    private int[] letterCounts;
     List<String> boxIDs;
 
     @Before
     public void initialize() {
         inventoryManager = new InventoryManager();
-        letterCounts = new int[2];
         boxIDs = Arrays.asList("aaabbbcee", "aabbcddee", "odddyrenn", "xxxxxxxxx", "sdfkjsakl", "odddytenn", "faagrufnr");
     }
 
@@ -22,7 +20,7 @@ public class InventoryManagerTest {
     public void that_letters_getting_counted_correctly() {
         String boxId = "aaabbbcdddee";
 
-        letterCounts = inventoryManager.countLetterOccurrencesOfSingle(boxId);
+        int[] letterCounts = inventoryManager.countLetterOccurrencesOfSingle(boxId);
 
         assertEquals(1, letterCounts[0]);
         assertEquals(1, letterCounts[1]);
