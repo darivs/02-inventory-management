@@ -27,6 +27,8 @@ class InventoryManager {
 
     int[] countLetterOccurrencesOfSingle(String boxId) {
         int[] letterCountsOfOneBoxId = new int[2];
+        twoOccurrences = false;
+        threeOccurrences = false;
 
         for (Character letter : alphabet) {
             int count = 0;

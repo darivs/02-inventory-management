@@ -9,11 +9,13 @@ import static org.junit.Assert.assertEquals;
 public class InventoryManagerTest {
     private InventoryManager inventoryManager;
     private int[] letterCounts;
+    List<String> boxIDs;
 
     @Before
     public void initialize() {
         inventoryManager = new InventoryManager();
         letterCounts = new int[2];
+        boxIDs = Arrays.asList("aaabbbcee", "aabbcddee", "odddyrenn", "xxxxxxxxx", "sdfkjsakl", "odddytenn", "faagrufnr");
     }
 
     @Test
@@ -28,17 +30,13 @@ public class InventoryManagerTest {
 
     @Test
     public void that_checksum_is_getting_calculated_correctly() {
-        List<String> boxIds = Arrays.asList("aaabbbcdddee", "aabbcddee", "odddyrenn", "xxxxxxxx");
+        int checksum = inventoryManager.getChecksum(boxIDs);
 
-        int checksum = inventoryManager.getChecksum(boxIds);
-
-        assertEquals(6, checksum);
+        assertEquals(18, checksum);
     }
 
     @Test
     public void that_box_ids_which_differ_by_one_character_getting_found() {
-        List<String> boxIDs = Arrays.asList("aaabbbcee", "aabbcddee", "odddyrenn", "xxxxxxxxx", "sdfkjsakl", "odddytenn", "faagrufnr");
-
         String[] correctBoxIDs = inventoryManager.getCorrectIDs(boxIDs);
 
         assertEquals("odddyrenn", correctBoxIDs[0]);
