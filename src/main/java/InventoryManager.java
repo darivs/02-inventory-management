@@ -52,8 +52,9 @@ class InventoryManager {
     String[] getCorrectIDs(List<String> boxIDs) {
         String[] correctIDs = new String[2];
 
-        for (int i = 0; i < boxIDs.size(); i++) {
-            char[] firstBoxID = boxIDs.get(i).toCharArray();
+        outerloop:
+        for (String boxID : boxIDs) {
+            char[] firstBoxID = boxID.toCharArray();
 
             for (int j = 1; j < boxIDs.size(); j++) {
                 char[] secondBoxID = boxIDs.get(j).toCharArray();
@@ -65,14 +66,12 @@ class InventoryManager {
                     }
 
                     if (differs > 1) {
-                        k = secondBoxID.length + 1;
+                        break;
                     } else if (differs == 1 && k == secondBoxID.length - 1) {
                         correctIDs[0] = new String(firstBoxID);
                         correctIDs[1] = new String(secondBoxID);
 
-                        k = secondBoxID.length;
-                        j = boxIDs.size();
-                        i = boxIDs.size();
+                        break outerloop;
                     }
                 }
 
